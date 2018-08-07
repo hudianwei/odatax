@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/odataxcore/odataxcore.iml" filepath="$PROJECT_DIR$/odataxcore/odataxcore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/odataxservice/odataxservice.iml" filepath="$PROJECT_DIR$/odataxservice/odataxservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/odataxweb/odataxweb.iml" filepath="$PROJECT_DIR$/odataxweb/odataxweb.iml" />
+    </modules>
+  </component>
+</project>

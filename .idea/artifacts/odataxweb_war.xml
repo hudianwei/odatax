@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="odataxweb:war">
+    <output-path>$PROJECT_DIR$/odataxweb/target</output-path>
+    <root id="archive" name="odatax-web-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="odataxweb:war exploded" />
+    </root>
+  </artifact>
+</component>
