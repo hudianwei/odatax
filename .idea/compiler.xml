@@ -13,8 +13,8 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="odataxcore" target="8" />
-      <module name="odataxservice" target="6" />
-      <module name="odataxweb" target="1.5" />
+      <module name="odataxservice" target="8" />
+      <module name="odataxweb" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

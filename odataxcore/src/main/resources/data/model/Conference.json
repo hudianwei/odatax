@@ -1,0 +1,152 @@
+{
+  "Domain": "Literature",
+  "Name": "Conference",
+  "Caption": "会议",
+  "Description": "国内外重要会议论文全文数据库的文献是由国内外会议主办单位或论文汇编单位书面授权并推荐出版的重要会议论文。由《中国学术期刊(光盘版)》电子杂志社编辑出版的国家级连续电子出版物专辑。",
+  "DataSource": "kbase1",
+  "DataView": "CPFDTotal",
+  "DataFilter": [],
+  "Properties": [
+    {
+      "Name": "Title@CN",
+      "Caption": "中文论文题名",
+      "Mapping": "论文题名",
+      "Filter": "MakeFlag"
+    },
+    {
+      "Name": "Author@CN",
+      "Caption": "中文论文作者",
+      "Mapping": "论文作者",
+      "Filter": "Multiple;MakeFlag",
+      "Expression": "{Mapping} {Op} '{Value}?'"
+    },
+    {
+      "Name": "Organization@CN",
+      "Caption": "中文作者单位",
+      "Mapping": "作者机构",
+      "Filter": "Multiple;MakeFlag",
+      "Expression": "{Mapping} {Op} '{Value}?'"
+    },
+    {
+      "Name": "Source@CN",
+      "Caption": "中文论文集名称",
+      "Mapping": "会议录名称",
+      "Expression": "{Mapping} {Op} '{Value}?'"
+    },
+    {
+      "Name": "Fund@CN",
+      "Caption": "中文基金",
+      "Mapping": "基金"
+    },
+    {
+      "Name": "Keyword@CN",
+      "Caption": "中文关键词",
+      "Mapping": "中文关键词",
+      "Dictionary": "关键词",
+      "Filter": "Multiple"
+    },
+    {
+      "Name": "Summary@CN",
+      "Caption": "中文论文摘要",
+      "Mapping": "论文摘要",
+      "Filter": "Summary"
+    },
+    {
+      "Name": "Title@EN",
+      "Caption": "英文论文题名",
+      "Mapping": "英文论文题名",
+      "Filter": "MakeFlag"
+    },
+    {
+      "Name": "Author@EN",
+      "Caption": "英文论文作者",
+      "Mapping": "英文论文作者",
+      "Filter": "Multiple;MakeFlag",
+      "Expression": "{Mapping} {Op} '{Value}?'"
+    },
+    {
+      "Name": "Organization@EN",
+      "Caption": "英文作者单位",
+      "Filter": "Multiple;MakeFlag",
+      "Expression": "{Mapping} {Op} '{Value}?'"
+    },
+    {
+      "Name": "Source@EN",
+      "Caption": "英文论文集名称",
+      "Mapping": "英文会议录名称",
+      "Expression": "{Mapping} {Op} '{Value}?'"
+    },
+    {
+      "Name": "Fund@EN",
+      "Caption": "英文基金"
+    },
+    {
+      "Name": "Keyword@EN",
+      "Caption": "英文关键词",
+      "Mapping": "英文关键词",
+      "Filter": "Multiple"
+    },
+    {
+      "Name": "Summary@EN",
+      "Caption": "英文论文摘要",
+      "Mapping": "英文论文摘要",
+      "Filter": "Summary"
+    },
+    {
+      "Name": "ConferenceName",
+      "Caption": "会议名称",
+      "Mapping": "会议名称",
+      "Filter": "MakeFlag",
+      "Expression": "{Mapping} {Op} '{Value}?'"
+    },
+    {
+      "Name": "ConferenceDate",
+      "Caption": "会议召开时间",
+      "Mapping": "会议召开时间",
+      "Dictionary": "Date",
+      "Filter": "Date"
+    },
+    {
+      "Name": "ConferenceVenue",
+      "Caption": "会议地点",
+      "Mapping": "会议地点"
+    },
+    {
+      "Name": "Sponsor",
+      "Caption": "主办单位",
+      "Mapping": "主办单位",
+      "Expression": "{Mapping} {Op} '{Value}?'"
+    },
+    {
+      "Name": "ProceedingType",
+      "Caption": "论文集类型",
+      "Mapping": "论文集类型"
+    },
+    {
+      "Name": "ReportLevel",
+      "Caption": "报告级别",
+      "Mapping": "报告级别"
+    },
+    {
+      "Name": "ConferenceLevel",
+      "Caption": "会议级别",
+      "Mapping": "会议级别"
+    },
+    {
+      "Name": "Sponsor@ID",
+      "Caption": "主办单位代码",
+      "Mapping": "主办单位代码",
+      "Dictionary": "Minteger"
+    },
+    {
+      "Name": "ReportLevel@ID",
+      "Caption": "报告级别代码",
+      "Mapping": "报告级别代码"
+    },
+    {
+      "Name": "ConferenceLevel@ID",
+      "Caption": "会议级别代码",
+      "Mapping": "会议级别代码"
+    }
+  ]
+}

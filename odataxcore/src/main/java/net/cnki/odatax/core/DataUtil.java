@@ -178,4 +178,18 @@ public class DataUtil {
         return map;
 
     }
+    /**
+     * 返回两个对象是否相等。<br />
+     * 允许传空。
+     *
+     * @param o1
+     *            对象1。
+     * @param o2
+     *            对象2。
+     *
+     * @return 两个对象是否相等。
+     */
+    public static boolean isEquals(Object o1, Object o2) {
+        return o1 == null ? o2 == null : o1.equals(o2);
+    }
 }

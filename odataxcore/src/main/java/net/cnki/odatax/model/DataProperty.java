@@ -17,6 +17,7 @@ public class DataProperty {
     private String expession = null;
 
     private String dictionary = null;
+    private String groupCodeName = null;
 
     public String getName() {
         return name;
@@ -66,5 +67,12 @@ public class DataProperty {
         this.dictionary = dictionary;
     }
 
+    public String getGroupCodeName() {
+        return groupCodeName;
+    }
+
+    public void setGroupCodeName(String groupCodeName) {
+        this.groupCodeName = groupCodeName;
+    }
 }
 

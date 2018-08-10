@@ -99,7 +99,7 @@ public class KBaseJdbcUtils {
             stat = null;
         }
         if (con != null) {
-            dataSource.addBackToPool(con);
+            dataSource.addBackToPool((com.kbase.jdbc.Connection) con);
             con = null;
         }
     }

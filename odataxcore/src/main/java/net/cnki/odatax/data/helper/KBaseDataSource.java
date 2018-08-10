@@ -1,7 +1,9 @@
 package net.cnki.odatax.data.helper;
 
+import com.kbase.jdbc.Connection;
+
+import javax.sql.DataSource;
 import java.io.PrintWriter;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.SQLFeatureNotSupportedException;
 import java.util.LinkedList;
@@ -9,7 +11,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
-import javax.sql.DataSource;
 
 /**
  * @author hudianwei
@@ -36,7 +37,7 @@ public class KBaseDataSource implements DataSource {
     private KBaseDataSource() {
         for (int i = 0; i < 20; i++) {
             // 创建 连接
-            Connection connection = KBaseJdbcUtils.getConnection();
+            Connection connection = (Connection) KBaseJdbcUtils.getConnection();
             // 把 创建的连接 放入池子中
             pool.add(connection);
         }
@@ -50,7 +51,7 @@ public class KBaseDataSource implements DataSource {
     public KBaseDataSource(String dataSourceName) {
         for (int i = 0; i < 20; i++) {
             // 创建 连接
-            Connection connection = KBaseJdbcUtils
+            Connection connection = (Connection) KBaseJdbcUtils
                     .getConnection(dataSourceName);
             // 把 创建的连接 放入池子中
             pool.add(connection);
@@ -61,7 +62,7 @@ public class KBaseDataSource implements DataSource {
     public KBaseDataSource(int maxActive) {
         for (int i = 0; i < maxActive; i++) {
             // 创建 连接
-            Connection connection = KBaseJdbcUtils.getConnection();
+            Connection connection = (Connection) KBaseJdbcUtils.getConnection();
             // 把 创建的连接 放入池子中
             pool.add(connection);
         }
@@ -109,7 +110,7 @@ public class KBaseDataSource implements DataSource {
         if (pool.isEmpty()) {
             // 为空的话 继续创建 5个连接
             for (int i = 0; i < 5; i++) {
-                Connection connection = KBaseJdbcUtils.getConnection();
+                Connection connection = (Connection) KBaseJdbcUtils.getConnection();
                 pool.add(connection);
             }
         }

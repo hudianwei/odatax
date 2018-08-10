@@ -1,7 +1,6 @@
-import net.cnki.odatax.core.Configuration;
-import net.cnki.odatax.core.DataUtil;
-import net.cnki.odatax.core.FileUtil;
-import net.cnki.odatax.core.Utils;
+import net.cnki.odatax.core.*;
+import net.cnki.odatax.model.DataModel;
+import net.cnki.odatax.model.DataProperty;
 import org.junit.Test;
 
 import java.io.*;
@@ -46,12 +45,26 @@ public class TestUnit {
         }
     }
 
+    /**
+     * @Description: 测试读取配置文件
+     * @Param: []
+     * @Return: void
+     * @Author: HU
+     * @Date: 2018/8/8 14:09
+     */
     @Test
     public void Configuration() {
         String a = Utils.getRandomNumber(5);
         String driverName = Configuration.getConfig("kbase" + "." + Configuration.DRIVER_NAME);
     }
 
+    /**
+     * @Description: 读取文件
+     * @Param: []
+     * @Return: void
+     * @Author: HU
+     * @Date: 2018/8/8 14:09
+     */
     @Test
     public void FileTest() throws IOException {
         //读取文件I/O分为字符流和字节流
@@ -65,6 +78,58 @@ public class TestUnit {
         String str = FileUtil.read(new FileInputStream("D:\\logtest\\logtest.log"), "UTF-8");
         System.out.print(str);
 
+
+    }
+
+    /**
+     * @Description: 测试生成的sql语句
+     * @Param: []
+     * @Return: void
+     * @Author: HU
+     * @Date: 2018/8/8 14:09
+     */
+    @Test
+    public void testFilterByUtil() {
+        Caching.put("models", Utils.loadModelsFile());
+        //modelMap
+        Map<String, DataModel> modelMap = Utils.loadModelsFile();
+        Caching.put("models", modelMap);
+        //modelPropertyMap
+        Map<String, Map<String, DataProperty>> modelPropertiesMap = new HashMap<String, Map<String, DataProperty>>();
+        DataModel subDataModel = null;
+        for (Map.Entry<String, DataModel> entry : modelMap.entrySet()) {
+            subDataModel = modelMap.get(entry.getValue().getDomain().toLowerCase());
+            final Map<String, DataProperty> propertyMap = new HashMap<String, DataProperty>();
+            if (!DataUtil.isBlank(subDataModel) && !DataUtil.isBlank(subDataModel.getProperties())) {
+                subDataModel.getProperties().forEach(
+                        record -> propertyMap.put(record.getName(), record)
+                );
+            }
+            entry.getValue().getProperties().forEach(
+                    record -> propertyMap.put(record.getName(), record)
+            );
+            modelPropertiesMap.put(entry.getKey(), propertyMap);
+        }
+        Caching.put("modelPropertiesMap", modelPropertiesMap);
+        String filter = "Title@CN   =    11 and (Author@CN eq 456 or Keyword@CN=123 or Author = '123123 12 =  ()()(312312 12312')";
+        String order = "Title@CN";
+        String group = "Keyword@CN";
+        Map<String, Object> sqlMap = Utils.getSqlMap("Conference", null,
+                filter, group, order, null, null);
+        sqlMap.entrySet().forEach(entry -> {
+            System.out.println(entry.getKey() + ":" + entry.getValue());
+        });
+    }
+
+    /**
+     * @Description:加密测试
+     * @Param: []
+     * @Return: void
+     * @Author: HU
+     * @Date: 2018/8/8 14:11
+     */
+    @Test
+    public void CryptographyTest() {
 
     }
 }

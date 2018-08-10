@@ -12,7 +12,7 @@ import java.util.Map;
 public class DataStore {
     private List<Map<String, Object>> records = new ArrayList<Map<String, Object>>();
     private Long totalCount = 0L;
-    private String errorCode = null;
+    private Integer errorCode = null;
     private String errorMessage = null;
     private String description = null;
     private BigDecimal processingTime = new BigDecimal(0);
@@ -55,6 +55,14 @@ public class DataStore {
 
     public void setProcessingTime(BigDecimal processingTime) {
         this.processingTime = processingTime;
+    }
+
+    public Integer getErrorCode() {
+        return errorCode;
+    }
+
+    public void setErrorCode(Integer errorCode) {
+        this.errorCode = errorCode;
     }
 
     @Override
